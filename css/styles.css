@@ -1609,3 +1609,71 @@ body {
         max-width: 100%;
     }
 }
+
+/* ============================================
+   THEME SWITCHER TOOLTIP
+   ============================================ */
+
+.theme-btn {
+    position: relative;
+    /* keep your existing styles */
+}
+
+/* Tooltip text */
+.theme-tooltip {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1002;
+}
+
+/* Tooltip arrow */
+.theme-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent var(--border-color) transparent;
+}
+
+.theme-tooltip::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 5px 5px 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--bg-card) transparent;
+}
+
+/* Show tooltip on hover */
+.theme-btn:hover .theme-tooltip {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+/* Mobile: Show tooltip on tap/click */
+@media (hover: none) and (pointer: coarse) {
+    .theme-btn:active .theme-tooltip,
+    .theme-btn:focus .theme-tooltip {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
