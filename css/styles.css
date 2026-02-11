@@ -227,7 +227,8 @@ body {
          position: fixed;
          top: 0;
          width: 100%;
-         background: rgba(10, 10, 10, 0.9);
+         /**background: rgba(10, 10, 10, 0.9);**/
+           background: var(--bg-secondary);
          backdrop-filter: blur(20px);
          border-bottom: 1px solid var(--border-color);
          z-index: 1000;
